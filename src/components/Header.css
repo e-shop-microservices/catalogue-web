@@ -1,0 +1,121 @@
+.header {
+    margin-top: 15px;
+}
+
+/* Top header */
+
+.header-top {
+    height: 67px;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.header-top > div {
+    flex-shrink: 0;
+}
+
+/* Before  blank spot */
+
+.search-form-container {
+    margin-left: 35px;
+    height: 100%;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: stretch;
+    height: 100%;
+}
+
+.search-icon {
+    width: 40px;
+    line-height: 65px;
+    font-size: 27px;
+    transition: color 0.2s ease;
+}
+
+.search-input {
+    font-size: 16px;
+    padding: 1px 5px 5px;
+    height: 100%;
+    width: 250px;
+    outline: none;
+    border-style: none;
+}
+
+.search-input:hover + .search-icon,
+.search-input:focus + .search-icon {
+    color: #c82128;
+}
+
+.blank-spot {
+    flex-grow: 1;
+}
+
+/* After blank spot */
+
+.separator {
+    background: black;
+    width: 1px;
+    border-radius: 10px;
+    margin: 10px 30px 10px 30px;
+}
+
+.phone-number-container > span,
+.user-profile-container > span,
+.wish-list-container > span,
+.shopping-basket-container > span {
+    font-size: 20px;
+    line-height: 65px;
+}
+
+.phone-number-icon,
+.user-circle-icon,
+.wish-list-icon,
+.shopping-basket-icon {
+    margin-right: 7px;
+}
+
+.user-profile-container {
+    margin-right: 40px;
+}
+
+.wish-list-container,
+.shopping-basket-container {
+    margin-right: 20px;
+    transition: color 0.2s ease;
+}
+
+.wish-list-container:hover,
+.shopping-basket-container:hover {
+    color: #c82128;
+}
+
+/* Bottom header */
+
+.menu-list {
+    margin: auto;
+    max-width: 1400px;
+    display: flex;
+}
+
+.menu-list-item {
+    margin: 0 0 0 1px;
+    text-align: center;
+    padding: 12px 20px 10px 20px;
+    color: #4a4a4a;
+    background: #f3f3f3;
+    text-decoration: none;
+    border: none;
+    flex-grow: 1;
+    transition: color 0.2s ease;
+    transition: background 0.2s ease;
+}
+
+.menu-list-item:hover {
+    color: #c82128;
+    background: white;
+}
