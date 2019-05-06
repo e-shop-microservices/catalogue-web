@@ -6,6 +6,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: white;
+}
+
+html {
+  color: #3e3e3e;
 }
 
 code {
