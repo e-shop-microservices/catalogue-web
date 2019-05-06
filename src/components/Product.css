@@ -1,0 +1,41 @@
+.catalog-item-wrapper {
+    flex-grow: 1;
+    height: 360px;
+    width: 256px;
+    min-width: 210px;
+    max-width: 340px;
+    background: white;
+    margin: 8px;
+}
+
+.catalog-item {
+    text-align: center;
+}
+
+.catalog-item-discount-area {
+    height: 34px;
+    background: white;
+}
+
+.catalog-item-image-area {
+    height: 65%;
+    padding-top: 20px;
+}
+
+.catalog-item-footer {
+    height: 35%;
+}
+
+.catalog-item-title-link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s ease;
+}
+
+.catalog-item-title-link:hover {
+    color: #c82128;
+}
+
+.catalog-item-price {
+    color: #595959;
+}
