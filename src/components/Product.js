@@ -8,7 +8,7 @@ const Product = ({name, price, imagePath}) => {
                 <div class="catalog-item-discount-area"/>
                 <div class="catalog-item-image-area">
                     <a href="https://google.com">
-                        <img src={imagePath}/>
+                        <img src={imagePath} alt={name}/>
                     </a>
                 </div>
                 <div class="catalog-item-footer">
