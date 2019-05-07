@@ -8,11 +8,8 @@ import CategoryBanner from "./components/CategoryBanner";
 function App() {
     return (
         <div className="App">
-            {/*<Header/>*/}
-            <ProductContainer/>
-
-
-            {/*<Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>*/}
+            <Header/>
+            {/*<ProductContainer/>*/}
 
             {/*<div style={{*/}
             {/*    background: 'lightgray',*/}

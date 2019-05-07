@@ -1,0 +1,18 @@
+.suggestion-item-wrapper {
+    width: 190px;
+    height: 210px;
+    margin: 10px 0 0 10px;
+    align-items: stretch;
+}
+
+.suggestion-item-wrapper .catalog-item-footer {
+    max-height: 60px;
+}
+
+.suggestion-item-wrapper .catalog-item-title-link {
+    font-size: 14px;
+}
+
+.suggestion-item-wrapper .catalog-item-price {
+    font-size: 12px;
+}
