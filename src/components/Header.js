@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPhone, faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {faPhone, faUserCircle, faHeart, faShoppingBasket} from "@fortawesome/free-solid-svg-icons";
 import ProductSearch from './search/ProductSearch'
 
 import './Header.css'
@@ -31,10 +31,14 @@ class Header extends Component {
                         <span className="phone-number-text">Personal account</span>
                     </div>
                     <div className="wish-list-container">
-                        <span className="fa fa-heart wish-list-icon"/>
+                        <span className="wish-list-icon">
+                            <FontAwesomeIcon icon={faHeart} className="wish-list-icon"/>
+                        </span>
                     </div>
                     <div className="shopping-basket-container">
-                        <span className="fa fa-shopping-basket shopping-basket-icon"/>
+                        <span className="shopping-basket-icon">
+                            <FontAwesomeIcon icon={faShoppingBasket}/>
+                        </span>
                     </div>
                 </div>
                 <div className="header-bottom">
