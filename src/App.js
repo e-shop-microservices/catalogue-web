@@ -19,7 +19,7 @@ function App() {
             {/*    <CategoryBanner imagePath="/backpacks.jpg" bannerText="Backpacks"/>*/}
             {/*</div>*/}
 
-            {/*<Footer/>*/}
+            <Footer/>
         </div>
     );
 }

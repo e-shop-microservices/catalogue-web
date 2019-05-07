@@ -34,3 +34,14 @@
 .search-input:focus + .search-icon {
     color: #c82128;
 }
+
+.overlay {
+    position: fixed;
+    top: 82px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 10;
+}

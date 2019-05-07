@@ -14,18 +14,12 @@ class SearchSuggestions extends Component {
     };
 
     render() {
-        const {products, totalAmount, show} = this.props;
-        if (!show) {
-            return (
-                <div id="search-suggestions-hidden"/>
-            )
-        }
-
+        const {products, totalAmount} = this.props;
         if (products.length <= 0) {
             return (
                 <div className="search-suggestions-container">
                     <div className="search-suggestions-footer">
-                        <h4>Nothing found</h4>
+                        <h4>No products found</h4>
                     </div>
                 </div>
             )
@@ -41,8 +35,8 @@ class SearchSuggestions extends Component {
                         Search for more
                     </a>
                     <span className="search-suggestions-total">
-                            Found {totalAmount ? totalAmount : 0} products in total
-                        </span>
+                        Found {totalAmount ? totalAmount : 0} products in total
+                    </span>
                 </div>
             </div>
         )

@@ -71,7 +71,6 @@ class ProductSearch extends Component {
             totalAmount: 364
         };
 
-        console.log(' >>>>>> QUERY: ', this.state.searchQuery);
         if (this.state.searchQuery === 'none') {
             searchResult.products = [];
             searchResult.totalAmount = 0;
@@ -79,6 +78,12 @@ class ProductSearch extends Component {
         this.setState({
             searchResult: searchResult,
             showSearchSuggestions: true
+        });
+    };
+
+    handleOverlayOnClick = () => {
+        this.setState({
+            showSearchSuggestions: false
         });
     };
 
@@ -92,9 +97,17 @@ class ProductSearch extends Component {
                            onChange={this.handleSearchQueryChange}/>
                     <FontAwesomeIcon className="search-icon" icon={faSearch}/>
                 </form>
-                <SearchSuggestions products={this.state.searchResult.products}
-                                   totalAmount={this.state.searchResult.totalAmount}
-                                   show={this.state.showSearchSuggestions}/>
+                {
+                    this.state.showSearchSuggestions
+                        ? <SearchSuggestions products={this.state.searchResult.products}
+                                             totalAmount={this.state.searchResult.totalAmount}/>
+                        : null
+                }
+                {
+                    this.state.showSearchSuggestions
+                        ? <div className="overlay" onClick={this.handleOverlayOnClick}/>
+                        : null
+                }
             </div>
         );
     }
