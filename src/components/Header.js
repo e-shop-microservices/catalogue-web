@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSearch, faPhone, faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {faPhone, faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import ProductSearch from './search/ProductSearch'
+
 import './Header.css'
 
 class Header extends Component {
@@ -13,14 +15,7 @@ class Header extends Component {
                             <img src="/logo.png" alt="Company logo (Gorgany Rework)"/>
                         </a>
                     </div>
-                    <div className="search-form-container">
-                        <form action="#" className="search-form">
-                            <input type="text" className="search-input" placeholder="Find equipment and clothes"/>
-                            <span className="search-icon">
-                                <FontAwesomeIcon icon={faSearch}/>
-                            </span>
-                        </form>
-                    </div>
+                    <ProductSearch/>
                     <div className="blank-spot"/>
                     <div className="phone-number-container">
                         <span className="phone-number-icon">
