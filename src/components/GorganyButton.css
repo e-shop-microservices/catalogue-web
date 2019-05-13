@@ -1,0 +1,29 @@
+.gorgany-button {
+    position: relative;
+    display: inline-block;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 35px;
+    text-align: center;
+    background: #c82128;
+    transition: background-color 0.3s ease;
+}
+
+.gorgany-button::after {
+    content: "";
+    background-image: url(/btn-pattern.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    bottom: -1px;
+    right: -1px;
+    width: 70px;
+    height: 40px;
+    background-size: cover;
+}
+
+.gorgany-button:hover {
+    background: #9c1a1f;
+}
