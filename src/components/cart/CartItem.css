@@ -1,0 +1,96 @@
+/*
+    This wrapper is just used to 'position: absolute' the close button
+ */
+.cart-item-wrapper {
+    position: relative;
+}
+
+.cart-item-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border: 1px solid #d6d6d6;
+    color: black;
+}
+
+.cart-item-image {
+    width: 15%;
+}
+
+.cart-item-image img {
+    max-width: 100px;
+    width: 100%;
+}
+
+.cart-item-info {
+    width: 20%;
+}
+
+.cart-item-info a {
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+    transition: color 0.2s ease;
+}
+
+.cart-item-info a:hover {
+    color: #c82128;
+}
+
+.cart-item-price {
+    text-align: center;
+    width: 40%;
+}
+
+.cart-item-price span {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.cart-item-quantity {
+    width: 12.5%;
+    text-align: center;
+}
+
+.cart-item-quantity select {
+    width: 70%;
+    height: 30px;
+    border: 1px solid #474747;
+    padding: 6px 12px;
+    background: white;
+    color: rgba(6, 6, 6, 0.68);
+    font-weight: 300;
+}
+
+.cart-item-total {
+    width: 12.5%;
+    text-align: center;
+}
+
+.cart-item-total span {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.cart-item-close-button {
+    border: 0;
+    padding: 0;
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 13px 0 0;
+    color: darkgrey;
+    transition: color 0.3s ease;
+}
+
+.cart-item-close-button:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.cart-item-close-icon {
+    font-size: 16px;
+}
+

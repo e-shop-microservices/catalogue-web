@@ -5,20 +5,13 @@ import ProductContainer from "./components/ProductContainer";
 import Product from "./components/Product";
 import CategoryBanner from "./components/CategoryBanner";
 
+import CartPage from "./pages/cart/index"
+
 function App() {
     return (
         <div className="App">
             <Header/>
-            {/*<ProductContainer/>*/}
-
-            {/*<div style={{*/}
-            {/*    background: 'lightgray',*/}
-            {/*    width: '500px',*/}
-            {/*    height: '350px'*/}
-            {/*}}>*/}
-            {/*    <CategoryBanner imagePath="/backpacks.jpg" bannerText="Backpacks"/>*/}
-            {/*</div>*/}
-
+            <CartPage/>
             <Footer/>
         </div>
     );
