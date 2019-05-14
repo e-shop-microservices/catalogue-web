@@ -1,7 +1,10 @@
 .color-filter-container {
 }
 
-.color.filter-element {
-    width: 100px;
-    height: 100px;
+.color-filter-element {
+    width: 24px;
+    height: 24px;
+    margin: 0 6px 18px 6px;
+    border-radius: 50%;
+    display: inline-block;
 }

@@ -8,18 +8,17 @@ class ColorFilter extends Component {
         this.state = {
             id: 'color',
             name: props.name,
-            options: props.options
-        }
+            availableColors: props.availableColors
+        };
     }
 
     render() {
         return (
             <div className="color-filter-container">
                 {
-                    this.state.options.map(c => (
-                        <div className="color-filter-element">
-                        </div>
-                    ))
+                    this.state.availableColors.map(color =>
+                        <div className="color-filter-element" style={{background: color}}/>
+                    )
                 }
             </div>
         );
