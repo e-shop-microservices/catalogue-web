@@ -6,12 +6,15 @@ import Product from "./components/Product";
 import CategoryBanner from "./components/CategoryBanner";
 
 import CartPage from "./pages/cart/index"
+import ProductSearchPage from "./pages/products";
+import Collapsible from 'react-collapsible';
+
 
 function App() {
     return (
         <div className="App">
             <Header/>
-            <CartPage/>
+            <ProductSearchPage searchRequest={{}}/>
             <Footer/>
         </div>
     );

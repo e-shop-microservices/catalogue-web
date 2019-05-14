@@ -1,0 +1,36 @@
+.filter-element-container {
+}
+
+.filter-element-trigger {
+    position: relative;
+}
+
+.filter-element-trigger-text {
+    display: block;
+    color: black;
+    font-size: 14px;
+}
+
+.trigger-open::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    width: 7px;
+    height: 7px;
+    border-top: 1px #060606 solid;
+    border-left: 1px #060606 solid;
+    transform: rotate(45deg);
+}
+
+.trigger-close::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1px #060606 solid;
+    border-right: 1px #060606 solid;
+    transform: rotate(45deg);
+}
