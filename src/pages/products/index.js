@@ -17,6 +17,10 @@ const ProductSearchPage = ({searchRequest}) => {
             options: [
                 'red',
                 'green',
+                'red',
+                'green',
+                'blue',
+                'green',
                 'blue'
             ]
         },

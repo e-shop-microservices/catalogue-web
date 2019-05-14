@@ -14,8 +14,13 @@ class ColorFilter extends Component {
 
     render() {
         return (
-            <div>
-                <h1>COLOR</h1>
+            <div className="color-filter-container">
+                {
+                    this.state.options.map(c => (
+                        <div className="color-filter-element">
+                        </div>
+                    ))
+                }
             </div>
         );
     }

@@ -15,7 +15,7 @@ class PriceFilter extends Component {
 
     render() {
         return (
-            <div className="price-filter-body">
+            <div className="price-filter-container">
                 $ <input className="price-filter-input" value={this.state.minPrice}/>
                 <span className="price-filter-between">-</span>
                 $ <input className="price-filter-input" value={this.state.maxPrice}/>
