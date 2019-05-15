@@ -1,4 +1,6 @@
 .filter-element-container {
+    border-bottom: 1px lightgray solid;
+    padding-bottom: 8px;
 }
 
 .filter-element-trigger {
