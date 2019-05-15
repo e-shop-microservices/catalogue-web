@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome/index";
 import {faSearch} from "@fortawesome/free-solid-svg-icons/index";
 import SearchSuggestions from './SearchSuggestions'
+import catalogueApi from '../../api/catalogue'
 
 import './ProductSearch.css'
 
@@ -35,50 +36,14 @@ class ProductSearch extends Component {
     };
 
     requestSearchSuggestions = () => {
-        let searchResult = {
-            products: [
-                {
-                    id: '1',
-                    name: 'product1',
-                    price: '240',
-                    imagePath: '/product.jpg'
-                },
-                {
-                    id: '2',
-                    name: 'product2',
-                    price: '540',
-                    imagePath: '/product.jpg'
-                },
-                {
-                    id: '3',
-                    name: 'product3',
-                    price: '350',
-                    imagePath: '/product.jpg'
-                },
-                {
-                    id: '3',
-                    name: 'product3',
-                    price: '350',
-                    imagePath: '/product.jpg'
-                },
-                {
-                    id: '3',
-                    name: 'product3',
-                    price: '350',
-                    imagePath: '/product.jpg'
-                }
-            ],
-            totalAmount: 364
-        };
-
-        if (this.state.searchQuery === 'none') {
-            searchResult.products = [];
-            searchResult.totalAmount = 0;
-        }
-        this.setState({
-            searchResult: searchResult,
-            showSearchSuggestions: true
-        });
+        catalogueApi.quickProductSearch(this.state.searchQuery)
+            .then(searchResult => {
+                console.log(searchResult);
+                this.setState({
+                    searchResult: searchResult,
+                    showSearchSuggestions: true
+                });
+            });
     };
 
     handleOverlayOnClick = () => {

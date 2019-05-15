@@ -1,22 +1,28 @@
 import React from 'react';
+import {BrowserRouter, Route} from "react-router-dom";
+
 import Footer from './components/Footer'
 import Header from "./components/Header";
-import ProductContainer from "./components/ProductContainer";
-import Product from "./components/Product";
-import CategoryBanner from "./components/CategoryBanner";
 
-import CartPage from "./pages/cart/index"
-import ProductSearchPage from "./pages/products";
-import Collapsible from 'react-collapsible';
+import ProductSearchPage from "./pages/ProductSearchPage";
+import HomePage from "./pages/HomePage";
+import CartPage from "./pages/CartPage";
 
+import './App.css'
 
 function App() {
     return (
-        <div className="App">
-            <Header/>
-            <ProductSearchPage searchRequest={{}}/>
-            <Footer/>
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Header/>
+                <div className="page-container">
+                    <Route exact path="/" component={HomePage}/>
+                    <Route path="/products" component={ProductSearchPage}/>
+                    <Route path="/cart" component={CartPage}/>
+                </div>
+                <Footer/>
+            </div>
+        </BrowserRouter>
     );
 }
 

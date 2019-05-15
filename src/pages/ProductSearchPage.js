@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './index.css'
-import ProductFilter from "../../components/accordion-filter/ProductFilter";
+import './ProductSearchPage.css'
+import ProductFilter from "../components/accordion-filter/ProductFilter";
 
 const ProductSearchPage = ({searchRequest}) => {
     let parameters = [
