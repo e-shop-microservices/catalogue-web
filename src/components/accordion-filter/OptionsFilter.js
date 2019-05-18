@@ -19,8 +19,7 @@ class OptionsFilter extends Component {
                 {
                     this.state.options.map(option =>
                         <div className="options-filter-checkbox-wrapper">
-                            <Checkbox
-                                style="thick" animation="smooth" color="danger-o">
+                            <Checkbox style="thick" animation="smooth" color="danger-o">
                                 {option}
                             </Checkbox>
                         </div>

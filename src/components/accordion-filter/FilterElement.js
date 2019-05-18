@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Collapsible from 'react-collapsible';
 import PriceFilter from './PriceFilter'
-import ColorFilter from './ColorFilter'
 import OptionsFilter from './OptionsFilter'
 
 import './FilterElement.css'
@@ -39,9 +38,6 @@ class FilterElement extends Component {
             return <PriceFilter name={this.state.name}
                                 minPrice={this.state.minPrice}
                                 maxPrice={this.state.maxPrice}/>;
-        } else if (this.state.id === 'color') {
-            return <ColorFilter name={this.state.name}
-                                availableColors={this.state.options}/>;
         } else {
             return <OptionsFilter id={this.state.id}
                                   name={this.state.name}
