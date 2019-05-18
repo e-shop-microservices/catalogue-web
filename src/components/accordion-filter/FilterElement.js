@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Collapsible from 'react-collapsible';
-import PriceFilter from './PriceFilter'
-import OptionsFilter from './OptionsFilter'
+import PriceFilterElement from './PriceFilterElement'
+import OptionsFilterElement from './OptionsFilterElement'
 
 import './FilterElement.css'
 
@@ -17,6 +17,7 @@ class FilterElement extends Component {
         if (props.id === 'price') {
             this.state.minPrice = props.minPrice;
             this.state.maxPrice = props.maxPrice;
+            this.state.open = true;
         } else {
             this.state.options = props.options;
         }
@@ -35,13 +36,13 @@ class FilterElement extends Component {
 
     renderBody = () => {
         if (this.state.id === 'price') {
-            return <PriceFilter name={this.state.name}
-                                minPrice={this.state.minPrice}
-                                maxPrice={this.state.maxPrice}/>;
+            return <PriceFilterElement name={this.state.name}
+                                       minPrice={this.state.minPrice}
+                                       maxPrice={this.state.maxPrice}/>;
         } else {
-            return <OptionsFilter id={this.state.id}
-                                  name={this.state.name}
-                                  options={this.state.options}/>
+            return <OptionsFilterElement id={this.state.id}
+                                         name={this.state.name}
+                                         options={this.state.options}/>
         }
     };
 

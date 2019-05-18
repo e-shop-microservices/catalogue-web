@@ -1,0 +1,26 @@
+.price-filter-container {
+    color: gray;
+}
+
+.price-filter-input::-webkit-inner-spin-button,
+.price-filter-input::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.price-filter-input {
+    font-size: 14px;
+    position: relative;
+    text-align: center;
+    display: inline;
+    width: 27%;
+    border: 0;
+    border-bottom: 1px lightgray solid;
+}
+
+.price-filter-between {
+    color: lightgray;
+    font-size: 22px;
+    line-height: 0;
+    margin: 0 10px;
+}

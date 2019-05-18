@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Checkbox} from 'pretty-checkbox-react';
 
-import './OptionsFilter.scss'
+import './OptionsFilterElement.scss'
 
-class OptionsFilter extends Component {
+class OptionsFilterElement extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,4 +30,4 @@ class OptionsFilter extends Component {
     }
 }
 
-export default OptionsFilter;
+export default OptionsFilterElement;

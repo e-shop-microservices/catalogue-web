@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import './PriceFilter.css'
+import './PriceFilterElement.css'
 
-class PriceFilter extends Component {
+class PriceFilterElement extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,12 +16,12 @@ class PriceFilter extends Component {
     render() {
         return (
             <div className="price-filter-container">
-                $ <input className="price-filter-input" value={this.state.minPrice}/>
+                $ <input type="number" className="price-filter-input" value={this.state.minPrice}/>
                 <span className="price-filter-between">-</span>
-                $ <input className="price-filter-input" value={this.state.maxPrice}/>
+                $ <input type="number" className="price-filter-input" value={this.state.maxPrice}/>
             </div>
         );
     }
 }
 
-export default PriceFilter;
+export default PriceFilterElement;

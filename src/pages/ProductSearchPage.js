@@ -3,7 +3,7 @@ import React from 'react';
 import './ProductSearchPage.css'
 import ProductFilter from "../components/accordion-filter/ProductFilter";
 
-const ProductSearchPage = ({searchRequest}) => {
+const ProductSearchPage = ({searchQuery}) => {
     let parameters = [
         {
             id: 'price',
@@ -39,7 +39,7 @@ const ProductSearchPage = ({searchRequest}) => {
         <div className="product-search-container">
             <h1 className="product-search-title">
                 {
-                    searchRequest.searchQuery ? "Search - " + searchRequest.searchQuery : null
+                    searchQuery ? "Search - " + searchQuery : null
                 }
             </h1>
             <ProductFilter parameters={parameters}/>
