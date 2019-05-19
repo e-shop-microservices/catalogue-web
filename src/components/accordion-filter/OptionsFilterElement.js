@@ -6,20 +6,41 @@ import './OptionsFilterElement.scss'
 class OptionsFilterElement extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             name: props.name,
-            options: props.options
-        }
+            options: props.options,
+        };
+        this.changeCallback = props.changeCallback;
     }
+
+    handleCheckboxChange = (optionName, event) => {
+        let options = [...this.state.options];
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].name === optionName) {
+                options[i].checked = event.target.checked;
+            }
+        }
+        this.setState({
+            options: options
+        });
+        if (this.changeCallback) {
+            this.changeCallback({...this.state});
+        }
+    };
 
     render() {
         return (
             <div className="options-filter-container">
                 {
                     this.state.options.map(option =>
-                        <div className="options-filter-checkbox-wrapper">
-                            <Checkbox style="thick" animation="smooth" color="danger-o">
-                                {option}
+                        <div key={option.name} className="options-filter-checkbox-wrapper">
+                            <Checkbox style="thick" animation="smooth" color="danger-o"
+                                      checked={option.checked}
+                                      onChange={(event) => {
+                                          this.handleCheckboxChange(option.name, event)
+                                      }}>
+                                {option.name}
                             </Checkbox>
                         </div>
                     )
