@@ -37,11 +37,36 @@ class CatalogueApi {
     }
 
     quickProductSearch = (searchQuery) => {
-        return crud.get(
-            {
-                path: `${baseUrl}/products?searchQuery=${searchQuery}&pageIndex=0&pageSize=8`
-            });
-    }
+        return crud.get({
+            path: `${baseUrl}/products?searchQuery=${searchQuery}&pageIndex=0&pageSize=8`
+        });
+    };
+
+    fullProductSearch = (searchRequest) => {
+        console.log(searchRequest);
+        console.log(this._buildFullSearchUrl(searchRequest));
+        return crud.get({
+            path: `${baseUrl}/products?${this._buildFullSearchUrl(searchRequest)}`
+        })
+    };
+
+    _buildFullSearchUrl(searchRequest) {
+        let uri = Object.keys(searchRequest)
+            .map(key => {
+                if (searchRequest[key]) {
+                    if (key === 'parameters') {
+                        return searchRequest[key]
+                            .map(p => `${p.name}=${p.options.join(',')}`)
+                            .join('&');
+                    }
+                    return `${key}=${searchRequest[key]}`;
+                }
+                return null;
+            })
+            .filter(component => component != null)
+            .join('&');
+        return encodeURI(uri);
+    };
 }
 
 const catalogueApi = new CatalogueApi(baseUrl);

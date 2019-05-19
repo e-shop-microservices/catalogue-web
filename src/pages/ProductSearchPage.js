@@ -3,12 +3,14 @@ import React, {Component} from 'react';
 import './ProductSearchPage.css'
 import ProductFilter from "../components/accordion-filter/ProductFilter";
 import ProductContainer from "../components/ProductContainer";
+import CatalogueApi from '../api/catalogue'
 
 class ProductSearchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             searchQuery: props.searchQuery,
+            searchTimeout: null,
             availableParameters: [
                 {
                     name: 'color2',
@@ -36,12 +38,6 @@ class ProductSearchPage extends Component {
                     ]
                 }
             ],
-            filterParameters: [
-                {
-                    name: 'manufacturer',
-                    value: 'Manufacturer2'
-                }
-            ],
             checkedParameters: [
                 {
                     name: 'color',
@@ -61,8 +57,34 @@ class ProductSearchPage extends Component {
     }
 
     handleProductFilterChange = (filter) => {
-        // TODO: implement search
-        // wait one second and start search
+        clearTimeout(this.state.searchTimeoutId);
+        this.setState({
+            searchTimeoutId: setTimeout(() => {
+                this.searchProducts(filter)
+            }, 1000)
+        });
+    };
+
+    searchProducts = (filter) => {
+        let searchRequest = {
+            searchQuery: this.state.searchQuery,
+            minPrice: filter.minPrice,
+            maxPrice: filter.maxPrice,
+            parameters: filter.parameters
+                .map(parameter => ({
+                    name: parameter.name,
+                    options: parameter.options.filter(option => option.checked)
+                }))
+                .filter(parameter => parameter.options.length > 0)
+                .map(parameter => ({
+                    name: parameter.name,
+                    options: parameter.options.map(option => option.name)
+                }))
+        };
+
+        let searchResult = CatalogueApi.fullProductSearch(searchRequest);
+
+        // TODO: parse searchResult
     };
 
     render() {
