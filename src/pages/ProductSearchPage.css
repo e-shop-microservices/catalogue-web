@@ -1,5 +1,10 @@
-.product-search-container {
+.product-search-page {
     padding: 50px 30px 30px 30px;
+}
+
+.product-list-and-filter {
+    display: grid;
+    grid-template-columns: 200px 1fr;
 }
 
 .product-search-title {
@@ -11,6 +16,5 @@
 
 .product-filter-wrapper {
     background: white;
-    width: 200px;
     min-height: 600px;
 }

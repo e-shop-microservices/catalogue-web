@@ -46,18 +46,20 @@ const ProductSearchPage = ({searchQuery}) => {
     ];
 
     return (
-        <div className="product-search-container">
+        <div className="product-search-page">
             <span>Nav / not / implemented / yet</span>
             <h1 className="product-search-title">
                 {
                     searchQuery ? "Search - " + searchQuery : null
                 }
             </h1>
-            <div className="product-filter-wrapper">
-                <ProductFilter parameters={parameters}/>
-            </div>
-            <div className="product-container-wrapper">
-                <ProductContainer/>
+            <div className="product-list-and-filter">
+                <div className="product-filter-wrapper">
+                    <ProductFilter parameters={parameters}/>
+                </div>
+                <div className="product-container-wrapper">
+                    <ProductContainer/>
+                </div>
             </div>
         </div>
     );

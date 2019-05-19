@@ -8,9 +8,6 @@ class ProductContainer extends Component {
             <div className="product-container">
                 <Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>
                 <Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>
-                <Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>
-                <Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>
-                <Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>
             </div>
         );
     }
