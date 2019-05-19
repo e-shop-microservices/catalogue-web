@@ -7,7 +7,6 @@ class OptionsFilterElement extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: props.id,
             name: props.name,
             options: props.options
         }

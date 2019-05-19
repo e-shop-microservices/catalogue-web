@@ -1,4 +1,5 @@
 .product-search-container {
+    padding: 50px 30px 30px 30px;
 }
 
 .product-search-title {
@@ -6,4 +7,10 @@
     text-align: center;
     margin-top: 25px;
     margin-bottom: 40px;
+}
+
+.product-filter-wrapper {
+    background: white;
+    width: 200px;
+    min-height: 600px;
 }

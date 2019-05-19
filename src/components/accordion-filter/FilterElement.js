@@ -35,13 +35,12 @@ class FilterElement extends Component {
     };
 
     renderBody = () => {
-        if (this.state.id === 'price') {
+        if (this.state.name === 'price') {
             return <PriceFilterElement name={this.state.name}
                                        minPrice={this.state.minPrice}
                                        maxPrice={this.state.maxPrice}/>;
         } else {
-            return <OptionsFilterElement id={this.state.id}
-                                         name={this.state.name}
+            return <OptionsFilterElement name={this.state.name}
                                          options={this.state.options}/>
         }
     };
@@ -55,9 +54,7 @@ class FilterElement extends Component {
                              open={this.state.open}
                              transitionTime="250"
                              easing="ease-out">
-                    {
-                        this.renderBody()
-                    }
+                    {this.renderBody()}
                 </Collapsible>
             </div>
         );

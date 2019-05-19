@@ -1,3 +1,9 @@
+.page-container-wrapper {
+    background: #f3f3f3;
+    width: 100%;
+    margin-top: 1px;
+}
+
 .page-container {
     margin: auto;
     max-width: 1400px;
