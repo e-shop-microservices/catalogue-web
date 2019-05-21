@@ -29,39 +29,52 @@
 /* After blank spot */
 
 .separator {
-    background: black;
+    background: gray;
     width: 1px;
     border-radius: 10px;
-    margin: 10px 30px 10px 30px;
+    margin: 11px;
 }
 
-.phone-number-container > span,
-.user-profile-container > span,
-.wish-list-container > span,
-.shopping-basket-container > span {
+.header-element-wrapper {
+    margin-bottom: 1px;
+}
+
+.header-element-wrapper > div {
+    margin-top: 21px;
+}
+
+.header-element-wrapper:hover {
+    background: #f3f3f3;
+}
+
+.phone-number-container,
+.user-profile-container,
+.shopping-basket-container {
     font-size: 20px;
-    line-height: 65px;
+    margin: auto 15px;
+    transition: background-color 0.3ms;
+}
+
+.shopping-basket-container {
+    padding: 0 7px;
+}
+
+.shopping-basket-container:hover,
+.user-profile-container:hover {
+    background: #f3f3f3;
 }
 
 .phone-number-icon,
-.user-circle-icon,
-.wish-list-icon,
-.shopping-basket-icon {
+.user-circle-icon {
     margin-right: 7px;
 }
 
-.user-profile-container {
-    margin-right: 40px;
-}
-
-.wish-list-container,
-.shopping-basket-container {
-    margin-right: 20px;
+.shopping-basket-icon {
+    color: #3e3e3e;
     transition: color 0.2s ease;
 }
 
-.wish-list-container:hover,
-.shopping-basket-container:hover {
+.shopping-basket-container:hover > a {
     color: #c82128;
 }
 

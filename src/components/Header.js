@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faHeart, faPhone, faShoppingBasket, faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {faPhone, faShoppingBasket, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import ProductSearch from './search/ProductSearch'
 import {Link} from 'react-router-dom'
 
@@ -18,28 +18,29 @@ class Header extends Component {
                     </div>
                     <ProductSearch/>
                     <div className="blank-spot"/>
-                    <div className="phone-number-container">
-                        <span className="phone-number-icon">
-                            <FontAwesomeIcon icon={faPhone}/>
-                        </span>
-                        <span className="phone-number-text">(095) 810 73 55</span>
+                    <div className="header-element-wrapper">
+                        <div className="phone-number-container">
+                            <span className="phone-number-icon">
+                                <FontAwesomeIcon icon={faPhone}/>
+                            </span>
+                            <span className="phone-number-text">(095) 810 73 55</span>
+                        </div>
                     </div>
                     <div className="separator"/>
-                    <div className="user-profile-container">
-                        <span className="user-circle-icon">
-                            <FontAwesomeIcon icon={faUserCircle}/>
-                        </span>
-                        <span className="phone-number-text">Personal account</span>
+                    <div className="header-element-wrapper">
+                        <div className="user-profile-container">
+                            <span className="user-circle-icon">
+                                <FontAwesomeIcon icon={faUserCircle}/>
+                            </span>
+                            <span className="phone-number-text">Personal account</span>
+                        </div>
                     </div>
-                    <div className="wish-list-container">
-                        <span className="wish-list-icon">
-                            <FontAwesomeIcon icon={faHeart} className="wish-list-icon"/>
-                        </span>
-                    </div>
-                    <div className="shopping-basket-container">
-                        <span className="shopping-basket-icon">
-                            <FontAwesomeIcon icon={faShoppingBasket}/>
-                        </span>
+                    <div className="header-element-wrapper">
+                        <div className="shopping-basket-container">
+                            <Link to="/cart" className="shopping-basket-icon">
+                                <FontAwesomeIcon icon={faShoppingBasket}/>
+                            </Link>
+                        </div>
                     </div>
                 </div>
                 <div className="header-bottom">
