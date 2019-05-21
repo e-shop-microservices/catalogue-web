@@ -15,12 +15,8 @@ class ProductSearchPage extends Component {
             searchTimeout: null,
             products: [],
             availableParameters: [],
-            checkedParameters: Object.keys(searchParameters)
-                .filter(k => k !== 'searchQuery' && k !== 'minPrice' && k !== 'maxPrice')
-                .map(k => ({
-                    name: k,
-                    options: [...searchParameters[k]]
-                }))
+            checkedParameters: this.parseCheckedParameters(searchParameters),
+            finishSearch: false
         };
 
         const filter = {
@@ -33,6 +29,17 @@ class ProductSearchPage extends Component {
         this.searchProducts(filter);
     }
 
+    parseCheckedParameters(searchParameters) {
+        return Object.keys(searchParameters)
+            .filter(k => k !== 'searchQuery' && k !== 'minPrice' && k !== 'maxPrice')
+            .map(k => ({
+                name: k,
+                options: Array.isArray(searchParameters[k])
+                    ? [...searchParameters[k]]
+                    : [searchParameters[k]]
+            }));
+    }
+
     handleProductFilterChange = (filter) => {
         clearTimeout(this.state.searchTimeoutId);
         this.setState({
@@ -43,38 +50,26 @@ class ProductSearchPage extends Component {
     };
 
     searchProducts = (filter) => {
-        let searchRequest = {
-            searchQuery: this.state.searchQuery,
-            minPrice: filter.minPrice,
-            maxPrice: filter.maxPrice,
-            parameters: filter.parameters
-                .map(parameter => ({
-                    name: parameter.name,
-                    options: parameter.options.filter(option => option.checked)
-                }))
-                .filter(parameter => parameter.options.length > 0)
-                .map(parameter => ({
-                    name: parameter.name,
-                    options: parameter.options.map(option => option.name)
-                }))
-        };
-
-        let searchResult = CatalogueApi.fullProductSearch(searchRequest);
+        console.log('Searching...\n', filter);
+        CatalogueApi.fullProductSearch(filter)
+            .then(searchResult => {
+                this.setState({
+                    products: searchResult.products,
+                    availableParameters: searchResult.availableParameters,
+                    checkedParameters: filter.parameters,
+                    finishSearch: true
+                })
+            });
 
         // TODO: don't forget to output subgroups
         // TODO: don't forget to output subgroups
         // TODO: don't forget to output subgroups
-
-        this.setState({
-            products: searchResult.products,
-            availableParameters: searchResult.availableParameters
-        })
     };
 
     render() {
         return (
             <div className="product-search-page">
-                <span>Nav / not / implemented / yet</span>
+                <span>nav / not / implemented / yet</span>
                 <h1 className="product-search-title">
                     {
                         this.state.searchQuery ? "Search - " + this.state.searchQuery : null
@@ -82,12 +77,16 @@ class ProductSearchPage extends Component {
                 </h1>
                 <div className="product-list-and-filter">
                     <div className="product-filter-wrapper">
-                        <ProductFilter availableParameters={this.state.availableParameters}
-                                       checkedParameters={this.state.checkedParameters}
-                                       onChange={this.handleProductFilterChange}/>
+                        {
+                            this.state.finishSearch
+                                ? <ProductFilter availableParameters={this.state.availableParameters}
+                                                 checkedParameters={this.state.checkedParameters}
+                                                 onChange={this.handleProductFilterChange}/>
+                                : <div/>
+                        }
                     </div>
                     <div className="product-container-wrapper">
-                        <ProductContainer/>
+                        <ProductContainer products={this.state.products}/>
                     </div>
                 </div>
             </div>

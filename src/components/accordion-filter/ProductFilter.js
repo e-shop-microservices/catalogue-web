@@ -9,15 +9,17 @@ class ProductFilter extends Component {
         this.state = {
             minPrice: props.minPrice,
             maxPrice: props.maxPrice,
-            parameters: props.availableParameters.map(parameter =>
-                ({
-                    name: parameter.name,
-                    options: parameter.options.map(option =>
-                        ({
-                            name: option,
-                            checked: false
-                        }))
-                }))
+            parameters: props.availableParameters
+                ? props.availableParameters.map(parameter =>
+                    ({
+                        name: parameter.name,
+                        options: parameter.values.map(option =>
+                            ({
+                                name: option,
+                                checked: false
+                            }))
+                    }))
+                : []
         };
         for (let i = 0; i < props.checkedParameters.length; i++) {
             for (let j = 0; j < this.state.parameters.length; j++) {
@@ -39,12 +41,28 @@ class ProductFilter extends Component {
         }
     };
 
+    onChangeCallback = () => {
+        this.onChange({
+            minPrice: this.state.minPrice,
+            maxPrice: this.state.maxPrice,
+            parameters: this.state.parameters
+                .map(parameter => ({
+                    name: parameter.name,
+                    options: parameter.options.filter(option => option.checked)
+                }))
+                .filter(parameter => parameter.options.length > 0)
+                .map(parameter => ({
+                    name: parameter.name,
+                    options: parameter.options.map(option => option.name)
+                }))
+        })
+    };
+
     handlePriceChange = (filterElement) => {
         this.setState({
             minPrice: filterElement.minPrice,
             maxPrice: filterElement.maxPrice
-        });
-        this.onChangeCallback();
+        }, this.onChangeCallback);
     };
 
     handleParametersChange = (filterElement) => {
@@ -56,17 +74,9 @@ class ProductFilter extends Component {
         }
         this.setState({
             parameters: parameters
-        });
-        this.onChangeCallback();
+        }, this.onChangeCallback);
     };
 
-    onChangeCallback = () => {
-        this.onChange({
-            minPrice: this.state.minPrice,
-            maxPrice: this.state.maxPrice,
-            parameters: this.state.parameters
-        })
-    };
 
     render() {
         return (

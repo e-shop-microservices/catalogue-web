@@ -10,8 +10,14 @@ class ProductPage extends Component {
         super(props);
         this.state = {
             productId: this.props.match.params.id,
-            product: CatalogueApi.getProductById(this.props.match.params.id)
+            product: {}
         };
+        CatalogueApi.getProductById(this.props.match.params.id)
+            .then(product => {
+                this.setState({
+                    product: product
+                })
+            })
     }
 
     render() {
@@ -22,14 +28,16 @@ class ProductPage extends Component {
                         <img className="product-page-image" src="/product.jpg" alt={this.state.product.name}/>
                     </div>
                     <div className="product-page-parameters">
-                        <h2>Product name</h2>
+                        <h2>{this.state.product.name}</h2>
                         <h1 className="product-page-price">{this.state.product.price} USD</h1>
                         {
-                            this.state.product.parameters.map(p => (
-                                <div className="product-page-parameter">
-                                    <span><b>{p.name}:</b> p.value</span>
-                                </div>
-                            ))
+                            this.state.product.parameters
+                                ? this.state.product.parameters.map(p => (
+                                    <div className="product-page-parameter">
+                                        <span><b>{p.name}:</b> {p.value}</span>
+                                    </div>
+                                ))
+                                : null
                         }
                         <GorganyButton title="Add to Cart"/>
                     </div>

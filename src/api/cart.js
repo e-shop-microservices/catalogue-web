@@ -1,8 +1,8 @@
 import crud from './base'
 
-const baseUrl = 'http://localhost/catalogue';
+const baseUrl = 'http://localhost/cart';
 
-class CatalogueApi {
+class CartApi {
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
     }
@@ -20,30 +20,30 @@ class CatalogueApi {
     };
 
     getProductById = (productId) => {
-        console.log(`${this.baseUrl}/products/${productId}`);
         return crud.get({
             path: `${this.baseUrl}/products/${productId}`
         })
     };
 
     _buildFullSearchUrl(searchRequest) {
-        return Object.keys(searchRequest)
+        let uri = Object.keys(searchRequest)
             .map(key => {
                 if (searchRequest[key]) {
                     if (key === 'parameters') {
                         return searchRequest[key]
-                            .map(p => p.options.map(o => `${encodeURIComponent(p.name)}=${encodeURIComponent(o)}`).join('&'))
+                            .map(p => `${p.name}=${p.options.join(',')}`)
                             .join('&');
                     }
-                    return `${encodeURIComponent(key)}=${encodeURIComponent(searchRequest[key])}`;
+                    return `${key}=${searchRequest[key]}`;
                 }
                 return null;
             })
             .filter(component => component != null)
             .join('&');
+        return encodeURI(uri);
     };
 }
 
-const catalogueApi = new CatalogueApi(baseUrl);
+const catalogueApi = new CartApi(baseUrl);
 
 export default catalogueApi;

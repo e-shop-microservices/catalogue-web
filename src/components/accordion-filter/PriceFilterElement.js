@@ -16,19 +16,17 @@ class PriceFilterElement extends Component {
     handleMinPriceChange = (event) => {
         this.setState({
             minPrice: event.target.value
-        });
-        if (this.changeCallback) {
+        }, () => {
             this.changeCallback({...this.state});
-        }
+        });
     };
 
     handleMaxPriceChange = (event) => {
         this.setState({
             maxPrice: event.target.value
-        });
-        if (this.changeCallback) {
+        }, () => {
             this.changeCallback({...this.state});
-        }
+        });
     };
 
     render() {

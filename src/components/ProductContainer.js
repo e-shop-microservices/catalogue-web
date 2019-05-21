@@ -3,11 +3,15 @@ import Product from "./Product";
 import './ProductContainer.css'
 
 const ProductContainer = ({products}) => {
-    if (products) {
+    if (products && products.length > 0) {
         return (
             <div className="product-container">
                 {
-                    products.map(p => <Product name={p.name} price={p.price} imagePath="/product.jpg"/>)
+                    products.map(p => <Product key={p.id}
+                                               id={p.id}
+                                               name={p.name}
+                                               price={p.price}
+                                               imagePath="/product.jpg"/>)
                 }
             </div>
         )

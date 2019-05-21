@@ -3,10 +3,10 @@ import Product from '../Product'
 
 import './SuggestionItem.css'
 
-const SuggestionItem = ({name, price, imagePath}) => {
+const SuggestionItem = ({id, name, price, imagePath}) => {
     return (
         <div className="suggestion-item-wrapper">
-            <Product name={name} price={price} imagePath={imagePath}/>
+            <Product id={id} name={name} price={price} imagePath={imagePath}/>
         </div>
     );
 };

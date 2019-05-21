@@ -64,7 +64,8 @@ class ProductSearch extends Component {
                 </form>
                 {
                     this.state.showSearchSuggestions
-                        ? <SearchSuggestions products={this.state.searchResult.products}
+                        ? <SearchSuggestions searchQuery={this.state.searchQuery}
+                                             products={this.state.searchResult.products}
                                              totalAmount={this.state.searchResult.totalAmount}/>
                         : null
                 }
