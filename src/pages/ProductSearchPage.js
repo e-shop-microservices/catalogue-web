@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import queryString from 'query-string'
 
 import './ProductSearchPage.css'
 import ProductFilter from "../components/accordion-filter/ProductFilter";
@@ -8,52 +9,28 @@ import CatalogueApi from '../api/catalogue'
 class ProductSearchPage extends Component {
     constructor(props) {
         super(props);
+        const searchParameters = queryString.parse(props.location.search);
         this.state = {
-            searchQuery: props.searchQuery,
+            searchQuery: searchParameters.searchQuery,
             searchTimeout: null,
-            availableParameters: [
-                {
-                    name: 'color2',
-                    options: [
-                        'red',
-                        'green',
-                        'blue',
-                        'blue2'
-                    ]
-                },
-                {
-                    name: 'color',
-                    options: [
-                        'red',
-                        'green',
-                        'blue',
-                    ]
-                },
-                {
-                    name: 'manufacturer',
-                    options: [
-                        'Manufacturer1',
-                        'Manufacturer2',
-                        'Manufacturer3'
-                    ]
-                }
-            ],
-            checkedParameters: [
-                {
-                    name: 'color',
-                    options: [
-                        'red'
-                    ]
-                },
-                {
-                    name: 'manufacturer',
-                    options: [
-                        'Manufacturer1',
-                        'Manufacturer2',
-                    ]
-                }
-            ]
-        }
+            products: [],
+            availableParameters: [],
+            checkedParameters: Object.keys(searchParameters)
+                .filter(k => k !== 'searchQuery' && k !== 'minPrice' && k !== 'maxPrice')
+                .map(k => ({
+                    name: k,
+                    options: [...searchParameters[k]]
+                }))
+        };
+
+        const filter = {
+            searchQuery: searchParameters.searchQuery,
+            minPrice: searchParameters.minPrice,
+            maxPrice: searchParameters.maxPrice,
+            parameters: this.state.checkedParameters
+        };
+
+        this.searchProducts(filter);
     }
 
     handleProductFilterChange = (filter) => {
@@ -84,7 +61,14 @@ class ProductSearchPage extends Component {
 
         let searchResult = CatalogueApi.fullProductSearch(searchRequest);
 
-        // TODO: parse searchResult
+        // TODO: don't forget to output subgroups
+        // TODO: don't forget to output subgroups
+        // TODO: don't forget to output subgroups
+
+        this.setState({
+            products: searchResult.products,
+            availableParameters: searchResult.availableParameters
+        })
     };
 
     render() {

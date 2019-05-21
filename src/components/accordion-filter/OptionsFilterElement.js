@@ -6,7 +6,6 @@ import './OptionsFilterElement.scss'
 class OptionsFilterElement extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             name: props.name,
             options: props.options,

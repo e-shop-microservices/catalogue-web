@@ -12,7 +12,7 @@ const Product = ({name, price, imagePath}) => {
             </div>
             <div className="catalog-item-footer">
                 <a href="https://google.com" className="catalog-item-title-link">{name}</a>
-                <span className="catalog-item-price">{price}</span>
+                <span className="catalog-item-price">{price} USD</span>
             </div>
         </div>
     );

@@ -9,3 +9,8 @@
 .product-container > * {
     min-height: 300px;
 }
+
+.product-container-no-found {
+    padding: 10px 0 0 80px;
+}
+

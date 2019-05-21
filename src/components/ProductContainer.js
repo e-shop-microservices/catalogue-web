@@ -1,16 +1,23 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Product from "./Product";
 import './ProductContainer.css'
 
-class ProductContainer extends Component {
-    render() {
+const ProductContainer = ({products}) => {
+    if (products) {
         return (
             <div className="product-container">
-                <Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>
-                <Product name="Штани Trimm Jurry" price="1234 грн." imagePath="/product.jpg"/>
+                {
+                    products.map(p => <Product name={p.name} price={p.price} imagePath="/product.jpg"/>)
+                }
             </div>
-        );
+        )
+    } else {
+        return (
+            <div className="product-container-no-found">
+                <h2>No products found</h2>
+            </div>
+        )
     }
-}
+};
 
 export default ProductContainer;
