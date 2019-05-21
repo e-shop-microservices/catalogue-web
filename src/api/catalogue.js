@@ -15,12 +15,11 @@ const createRequest = ({method}) => (
             headers: createHeaders(),
             method,
         };
-
         if (body) {
             requestBody.body = JSON.stringify(body);
         }
-
-        return fetch(path, requestBody).then(body => body.json());
+        return fetch(path, requestBody)
+            .then(body => body.json());
     }
 );
 
@@ -38,15 +37,19 @@ class CatalogueApi {
 
     quickProductSearch = (searchQuery) => {
         return crud.get({
-            path: `${baseUrl}/products?searchQuery=${searchQuery}&pageIndex=0&pageSize=8`
+            path: `${this.baseUrl}/products?searchQuery=${searchQuery}&pageIndex=0&pageSize=8`
         });
     };
 
     fullProductSearch = (searchRequest) => {
-        console.log(searchRequest);
-        console.log(this._buildFullSearchUrl(searchRequest));
         return crud.get({
-            path: `${baseUrl}/products?${this._buildFullSearchUrl(searchRequest)}`
+            path: `${this.baseUrl}/products?${this._buildFullSearchUrl(searchRequest)}`
+        })
+    };
+
+    getProductById = (productId) => {
+        return crud.get({
+            path: `${this.baseUrl}/products/${productId}`
         })
     };
 
