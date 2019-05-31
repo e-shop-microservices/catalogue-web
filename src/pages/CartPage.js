@@ -5,7 +5,7 @@ import './CartPage.css'
 
 const CartPage = () => {
     return (
-        <div className="cart-container">
+        <div className="cart-page-container">
             <h1 className="cart-title">Shopping Cart</h1>
             <Cart/>
         </div>

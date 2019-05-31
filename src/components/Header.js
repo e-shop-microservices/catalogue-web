@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faShoppingBasket, faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {faShoppingBasket, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import ProductSearch from './search/ProductSearch'
 import {Link} from 'react-router-dom'
 
@@ -27,13 +27,9 @@ class Header extends Component {
                         </div>
                     </div>
                     <div className="separator"/>
-                    <div className="header-element-wrapper">
-                        <div className="shopping-basket-container">
-                            <Link to="/cart" className="shopping-basket-icon">
-                                <FontAwesomeIcon icon={faShoppingBasket}/>
-                            </Link>
-                        </div>
-                    </div>
+                    <Link to="/cart" className="shopping-basket-container">
+                        <FontAwesomeIcon icon={faShoppingBasket} className="shopping-basket-icon"/>
+                    </Link>
                 </div>
                 <div className="header-bottom">
                     <div className="menu-list">

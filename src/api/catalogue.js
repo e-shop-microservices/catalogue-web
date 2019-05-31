@@ -14,8 +14,9 @@ class CatalogueApi {
     };
 
     fullProductSearch = (searchRequest) => {
+        let relativePath = `/products?${this._buildFullSearchUrl(searchRequest)}`;
         return crud.get({
-            path: `${this.baseUrl}/products?${this._buildFullSearchUrl(searchRequest)}`
+            path: this.baseUrl + relativePath
         })
     };
 
